@@ -1,22 +1,83 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
+body {
+    background: rgb(255,133,89);
+    background: linear-gradient(0deg, rgb(255, 174, 81) 0%, rgb(255, 165, 133) 100%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #333;
+    min-height: 100vh;
+  }
+  
+  h1 {
+      font-size: 4.3em;
+      font-weight: 300;
+  }
+  
+  h2 {
+      color: rgb(175, 0, 0);
+      font-size: 1.4em;
+      font-weight: 500;
+  }
+  
+  hr {
+      border: none;
+      border-top: 3px double #333;
+      color: #333;
+  }
+  
+  .taskText {
+      font-weight: 900;
+  }
+  
+  .taskDivider {
+      border: none;
+      width: 93%;
+      border-top: 1px dotted rgb(175, 0, 0);
+      color: #fff;
+  }
+  
+  .redBG {
+      background-color: rgb(175, 0, 0);
+  }
+  
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+  }
+  
+  .btn {
+      background-color: #333;
+      border: none;
+      color: #fff;
+      margin: 4px;
+      font-size: 0.8em;
+      cursor: pointer;
+  }
+    
+  .btn:hover {
+      background-color: rgb(175, 0, 0);
+  }
+  
+  .icon-todo { 
+      font-size: 1.8em;
+      color: #fff;
+      padding-right: 5px;
+      padding-left: 5px;
+      float: right;
+  }
+    
+  .icon-todo:hover { 
+      color: rgb(175, 0, 0);
+  }
+    
+  .icon-bin { 
+      font-size: 1.8em;
+      color: #000;
+      padding-right: 5px;
+      padding-left: 5px;
+      float: right;
+  }
+    
+  .icon-bin:hover { 
+      color: rgb(175, 0, 0);
+  }
