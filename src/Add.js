@@ -8,7 +8,7 @@ class Add extends React.Component {
             <form>
                 <div className="form-row">
                     <div className="col-9"><input type="text" className="form-control" placeholder="add a task" /></div>                        
-                    <div className="col-3"><a href="#"><button className="btn">add</button></a></div>
+                    <div className="col-3"><button className="btn">add</button></div>
                 </div>
             </form>
             <hr />
