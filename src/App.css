@@ -13,11 +13,14 @@ body {
   }
   
   h2 {
-      color: rgb(175, 0, 0);
-      font-size: 1.4em;
+      color: rgb(223, 37, 4);;
+      font-size: 1.6em;
       font-weight: 500;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 5px;
   }
-  
+
+
   hr {
       border: none;
       border-top: 3px double #333;
@@ -25,18 +28,14 @@ body {
   }
   
   .taskText {
-      font-weight: 900;
+      font-weight: 700;
   }
   
   .taskDivider {
       border: none;
       width: 93%;
-      border-top: 1px dotted rgb(175, 0, 0);
+      border-top: 1px dotted rgb(223, 37, 4);;
       color: #fff;
-  }
-  
-  .redBG {
-      background-color: rgb(175, 0, 0);
   }
   
   ul {
@@ -46,9 +45,9 @@ body {
   }
   
   .btn {
-      background-color: #333;
+      background-color: black;
       border: none;
-      color: #fff;
+      color: white;
       margin: 4px;
       font-size: 0.8em;
       cursor: pointer;
@@ -60,7 +59,7 @@ body {
   
   .icon-todo { 
       font-size: 1.8em;
-      color: #fff;
+      color: white;
       padding-right: 5px;
       padding-left: 5px;
       float: right;
@@ -68,6 +67,7 @@ body {
     
   .icon-todo:hover { 
       color: rgb(175, 0, 0);
+      cursor: pointer;
   }
     
   .icon-bin { 
@@ -76,6 +76,7 @@ body {
       padding-right: 5px;
       padding-left: 5px;
       float: right;
+      cursor: pointer;
   }
     
   .icon-bin:hover { 
