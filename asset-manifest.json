@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/manana-react/static/css/main.151d25f6.chunk.css",
+    "main.js": "/manana-react/static/js/main.088c4836.chunk.js",
+    "main.js.map": "/manana-react/static/js/main.088c4836.chunk.js.map",
+    "runtime-main.js": "/manana-react/static/js/runtime-main.57862528.js",
+    "runtime-main.js.map": "/manana-react/static/js/runtime-main.57862528.js.map",
+    "static/js/2.f9a209db.chunk.js": "/manana-react/static/js/2.f9a209db.chunk.js",
+    "static/js/2.f9a209db.chunk.js.map": "/manana-react/static/js/2.f9a209db.chunk.js.map",
+    "index.html": "/manana-react/index.html",
+    "precache-manifest.5901545a748a1d4a8bc4314c3b42f445.js": "/manana-react/precache-manifest.5901545a748a1d4a8bc4314c3b42f445.js",
+    "service-worker.js": "/manana-react/service-worker.js",
+    "static/css/main.151d25f6.chunk.css.map": "/manana-react/static/css/main.151d25f6.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.57862528.js",
+    "static/js/2.f9a209db.chunk.js",
+    "static/css/main.151d25f6.chunk.css",
+    "static/js/main.088c4836.chunk.js"
+  ]
+}
