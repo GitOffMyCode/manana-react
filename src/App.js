@@ -75,7 +75,7 @@ class App extends React.Component {
           <div className="row">
             <div className="col-12 col-md-6">
               <h2>DO IT</h2>
-              <TasksRemaining count={this.state.tasks.length} />
+              <TasksRemaining count={incompleteTasks.length} />
 
               {incompleteTasks.map(task => {
                 return <Task text={task.text} completed={task.completed} key={task.id} deleteTaskFunc={this.deleteTask} doneTaskFunc={this.doneTask} id={task.id} />
