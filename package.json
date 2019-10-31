@@ -2,7 +2,7 @@
   "name": "manana",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://GitOffMyCode.github.io/manana-react",
+  "homepage": "https://gitoffmycode.github.io/manana-react",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.10.2",
