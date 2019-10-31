@@ -37,7 +37,7 @@ class Add extends React.Component {
                             onChange={this.updateNewItemText}
                         />
                     </div>                        
-                    <div className="col-3"><button className="btn" onClick={this.handleClick} disabled={this.state.newItemText.length === 0}>add</button></div>
+                    <div className="col-3"><button className="btn" onClick={this.handleClick} disabled={this.state.newItemText.length === 0 || this.state.newItemText.length > 25}>add</button></div>
                 </div>
             </form>
             <hr />
