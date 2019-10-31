@@ -32,10 +32,26 @@ class App extends React.Component {
     });
   }
 
-  markTaskAsDone = () => {
-
+  deleteTask = (id) => {
+    const updatedTasks = this.state.tasks.filter(task => {
+      return task.id !== id
+    });
+    this.setState({
+      tasks: updatedTasks
+    })
   }
 
+  doneTask = (id) => {
+    // change task with this id to be completed: true
+    const updatedTasks = this.state.tasks.map(task => {
+      if (task.id === id) task.completed = true
+      return task
+    })
+    this.setState({
+      tasks: updatedTasks
+    })
+  }
+  
   render() {
     const completedTasks = this.state.tasks.filter(task => {
       return task.completed;
@@ -62,7 +78,7 @@ class App extends React.Component {
               <TasksRemaining count={this.state.tasks.length} />
 
               {incompleteTasks.map(task => {
-                return <Task text={task.text} completed={task.completed} key={task.id} />
+                return <Task text={task.text} completed={task.completed} key={task.id} deleteTaskFunc={this.deleteTask} doneTaskFunc={this.doneTask} id={task.id} />
               })}
 
               <hr />
@@ -71,7 +87,7 @@ class App extends React.Component {
               <h2>DONE IT</h2>
 
               {completedTasks.map(task => {
-                return <DoneTask text={task.text} completed={task.completed} key={task.id} />
+                return <DoneTask text={task.text} completed={task.completed} key={task.id} deleteTaskFunc={this.deleteTask} id={task.id} />
               })}
 
               <hr />

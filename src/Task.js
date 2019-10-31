@@ -2,8 +2,12 @@ import React from "react"
 
 class Task extends React.Component {
 
-    eventHandlerDone () {
-        console.log("done!")
+    handleDelete = () => {
+        this.props.deleteTaskFunc(this.props.id);
+    }
+
+    handleDone = () => {
+        this.props.doneTaskFunc(this.props.id)
     }
 
     render() {
@@ -13,8 +17,8 @@ class Task extends React.Component {
                 <hr className="taskDivider" />
                 <li className="mx-3 taskText">
                     {this.props.text}
-                    <span className="fa fa-trash icon-bin"></span>
-                    <span className="fa fa-check-circle icon-todo" onClick={this.eventHandlerDone}></span>
+                    <span className="fa fa-trash icon-bin" onClick={this.handleDelete}></span>
+                    <span className="fa fa-check-circle icon-todo" onClick={this.handleDone} ></span>
                 </li>
             </ul>
         </div>
