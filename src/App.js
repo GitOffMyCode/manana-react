@@ -11,19 +11,21 @@ class App extends React.Component {
 
   state = {
     tasks: [
-      { text: "ring Dad", completed: false, id: uuid() },
-      { text: "go for a run", completed: true, id: uuid() },
-      { text: "finish homework", completed: false, id: uuid() },
-      { text: "buy gin", completed: false, id: uuid() },
-      { text: "book holiday", completed: true, id: uuid() },
+      { text: "ring Dad", completed: false, dueBy: "2019-11-10", id: uuid() },
+      { text: "go for a run", completed: true, dueBy: "2019-12-02", id: uuid() },
+      { text: "finish homework", completed: false, dueBy: "2019-11-17", id: uuid() },
+      { text: "buy gin", completed: false, dueBy: "2019-12-01", id: uuid() },
+      { text: "book holiday", completed: true, dueBy: "2020-01-02", id: uuid() },
     ]
   }
 
-  addNewTask = (taskText) => {
+  addNewTask = (taskText, dueByDate) => {
     const tasksCopy = this.state.tasks.slice()
+
     const newTask = {
       text: taskText,
       completed: false,
+      dueBy: dueByDate,
       id: uuid()
     };
     tasksCopy.push(newTask)
@@ -42,7 +44,6 @@ class App extends React.Component {
   }
 
   doneTask = (id) => {
-    // change task with this id to be completed: true
     const updatedTasks = this.state.tasks.map(task => {
       if (task.id === id) task.completed = true
       return task
@@ -61,7 +62,7 @@ class App extends React.Component {
     });
 
     return (
-      <div className="App">
+      <div>
         <div className="container mx-auto my-md-5">
           <div className="row">
             <div className="col-12 col-md-6">
@@ -78,7 +79,7 @@ class App extends React.Component {
               <TasksRemaining count={incompleteTasks.length} />
 
               {incompleteTasks.map(task => {
-                return <Task text={task.text} completed={task.completed} key={task.id} deleteTaskFunc={this.deleteTask} doneTaskFunc={this.doneTask} id={task.id} />
+                return <Task text={task.text} completed={task.completed} key={task.id} deleteTaskFunc={this.deleteTask} doneTaskFunc={this.doneTask} id={task.id} dueBy={task.dueBy} />
               })}
 
               <hr />
