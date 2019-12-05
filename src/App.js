@@ -1,5 +1,5 @@
 import React from 'react';
-import uuid from "uuid/v4";
+import axios from "axios";
 import Header from "./Header";
 import Add from "./Add";
 import TasksRemaining from "./TasksRemaining"
@@ -9,50 +9,82 @@ import './App.css';
 
 class App extends React.Component {
 
+  // fields in "Task" table in Manana database: taskText, dateDue, completed, userId (taskId is auto_increment)	
   state = {
-    tasks: [
-      { text: "ring Dad", completed: false, dueBy: "2019-11-10", id: uuid() },
-      { text: "go for a run", completed: true, dueBy: "2019-12-02", id: uuid() },
-      { text: "finish homework", completed: false, dueBy: "2019-11-17", id: uuid() },
-      { text: "buy gin", completed: false, dueBy: "2019-12-01", id: uuid() },
-      { text: "book holiday", completed: true, dueBy: "2020-01-02", id: uuid() },
-    ]
+    tasks: []
   }
 
+  // NOTE - everytime need to interact with database use axios (library for sending API requests) -> change state
+
+  // GET all the tasks as soon as the react app is loaded
+  componentDidMount() {
+    axios.get("https://ewli15zf1g.execute-api.eu-west-1.amazonaws.com/dev/tasks")
+      .then(response => {
+        const tasksFromDB = response.data;
+        this.setState({
+          tasks: tasksFromDB
+        });
+      })
+      .catch(err => {
+        console.log("Error getting data", err)
+      })
+  }
+
+  // POST a new task (2 parameters: taskText and dueByDate)
   addNewTask = (taskText, dueByDate) => {
     const tasksCopy = this.state.tasks.slice()
-
     const newTask = {
-      text: taskText,
+      taskText: taskText,
+      dateDue: dueByDate,
       completed: false,
-      dueBy: dueByDate,
-      id: uuid()
+      userId: 1
     };
-    tasksCopy.push(newTask)
-    this.setState({
-      tasks: tasksCopy
-    });
+    axios.post("https://ewli15zf1g.execute-api.eu-west-1.amazonaws.com/dev/tasks", newTask)
+      .then(response => {
+        const taskFromDB = response.data;
+        tasksCopy.push(taskFromDB)
+        this.setState({
+          tasks: tasksCopy
+        })
+      })
+      .catch(err => {
+        console.log("Error creating task", err)
+      })
   }
 
+  // DELETE a task (1 paramter: id)
   deleteTask = (id) => {
-    const updatedTasks = this.state.tasks.filter(task => {
-      return task.id !== id
-    });
-    this.setState({
-      tasks: updatedTasks
-    })
+    axios.delete("https://ewli15zf1g.execute-api.eu-west-1.amazonaws.com/dev/tasks/" + id)
+      .then(response => {
+        const updatedTasks = this.state.tasks.filter(task => {
+          return task.taskId !== id
+        });
+        this.setState({
+          tasks: updatedTasks
+        });
+      })
+      .catch(err => {
+        console.log("Error deleting task", err)
+      })
   }
 
+  // PUT updates a task to completed (1 paramter: id)
   doneTask = (id) => {
-    const updatedTasks = this.state.tasks.map(task => {
-      if (task.id === id) task.completed = true
-      return task
-    })
-    this.setState({
-      tasks: updatedTasks
-    })
+    axios.put("https://ewli15zf1g.execute-api.eu-west-1.amazonaws.com/dev/tasks/" + id)
+      .then(response => {
+        const updatedTasks = this.state.tasks.map(task => {
+          if (task.taskId === id) task.completed = true
+          return task;
+        });
+        this.setState({
+          tasks: updatedTasks
+        });
+      })
+      .catch(err => {
+        console.log("Error updating task", err)
+      })
   }
-  
+
   render() {
     const completedTasks = this.state.tasks.filter(task => {
       return task.completed;
@@ -79,7 +111,14 @@ class App extends React.Component {
               <TasksRemaining count={incompleteTasks.length} />
 
               {incompleteTasks.map(task => {
-                return <Task text={task.text} completed={task.completed} key={task.id} deleteTaskFunc={this.deleteTask} doneTaskFunc={this.doneTask} id={task.id} dueBy={task.dueBy} />
+                return <Task
+                  text={task.taskText}
+                  completed={task.completed}
+                  key={task.taskId}
+                  id={task.taskId}
+                  dueBy={task.dateDue}
+                  doneTaskFunc={this.doneTask}
+                  deleteTaskFunc={this.deleteTask} />
               })}
 
               <hr />
@@ -88,7 +127,12 @@ class App extends React.Component {
               <h2>DONE IT</h2>
 
               {completedTasks.map(task => {
-                return <DoneTask text={task.text} completed={task.completed} key={task.id} deleteTaskFunc={this.deleteTask} id={task.id} />
+                return <DoneTask
+                  text={task.taskText}
+                  completed={task.completed}
+                  key={task.taskId}
+                  id={task.taskId}
+                  deleteTaskFunc={this.deleteTask} />
               })}
 
               <hr />
