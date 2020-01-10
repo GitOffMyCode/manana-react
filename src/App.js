@@ -29,18 +29,29 @@ class App extends React.Component {
       })
   }
 
-  // sorts tasks by dueByDate
+  // sorts tasks by dateDue (creates moment object to sort)
   sortTasksByDueDate = tasks => {
-    const sortedTasks = tasks.map(task => {
+    const incompleteTasks = tasks.map(task => {
       const dueByMoment = moment(task.dateDue);
-      task.dateDue = dueByMoment
+      task.dateDue = dueByMoment;
       return task;
     });
-    sortedTasks.sort((a,b) => {
+    incompleteTasks.sort((a,b) => {
       return a.dateDue.isAfter(b.dateDue) ? 1 : -1
     });
-    return sortedTasks;
+    this.checkDueDateStatus(incompleteTasks);
+    return incompleteTasks;
   }
+
+  // check status of dueDate
+  checkDueDateStatus = tasks => {
+    const dateNow = moment();
+    const incompleteTasks = tasks.map(task => {
+      task.isOverDue = 
+      task.dateDue.isAfter(dateNow) ? task.isOverDue = false : task.isOverDue = true;
+    });
+    return incompleteTasks;
+  } 
 
   // POST a new task (2 parameters: taskText and dueByDate)
   addNewTask = (taskText, dueByDate) => {
@@ -128,6 +139,7 @@ class App extends React.Component {
                 return <Task
                   text={task.taskText}
                   completed={task.completed}
+                  isOverDue={task.isOverDue}
                   key={task.taskId}
                   id={task.taskId}
                   dueBy={task.dateDue}

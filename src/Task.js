@@ -17,10 +17,16 @@ class Task extends React.Component {
             <ul>
                 <hr className="taskDivider" />
                 <li className="mx-3 taskText">
+                    {this.props.isOverDue ? <span className="overdue"><i class="fa fa-exclamation-circle"></i></span> : <span></span>}
                     {this.props.text}
                     <span className="fa fa-trash icon-bin" onClick={this.handleDelete}></span>
                     <span className="fa fa-check-circle icon-todo" onClick={this.handleDone} ></span>
-                    <div className="small-text">due by: {moment(this.props.dueBy, "YYYY-MM-DD").format("dddd Do MMM")}</div>
+                    <div><span className="small-text-grey">
+                    {this.props.isOverDue ? <span>overdue: </span> : <span>due by: </span>}
+                        </span>
+                    <span className="small-text">
+                        {moment(this.props.dueBy, "YYYY-MM-DD").format("dddd Do MMM YYYY")}
+                        </span></div>
                 </li>
             </ul>
         </div>
