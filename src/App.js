@@ -5,16 +5,15 @@ import Add from "./Add";
 import TasksRemaining from "./TasksRemaining"
 import Task from "./Task";
 import DoneTask from "./DoneTask";
+import moment from "moment";
 import './App.css';
 
 class App extends React.Component {
 
-  // fields in "Task" table in Manana database: taskText, dateDue, completed, userId (taskId is auto_increment)	
+  // taskText, dateDue, completed, userId 	
   state = {
     tasks: []
   }
-
-  // NOTE - everytime need to interact with database use axios (library for sending API requests) -> change state
 
   // GET all the tasks as soon as the react app is loaded
   componentDidMount() {
@@ -28,6 +27,19 @@ class App extends React.Component {
       .catch(err => {
         console.log("Error getting data", err)
       })
+  }
+
+  // sorts tasks by dueByDate
+  sortTasksByDueDate = tasks => {
+    const sortedTasks = tasks.map(task => {
+      const dueByMoment = moment(task.dateDue);
+      task.dateDue = dueByMoment
+      return task;
+    });
+    sortedTasks.sort((a,b) => {
+      return a.dateDue.isAfter(b.dateDue) ? 1 : -1
+    });
+    return sortedTasks;
   }
 
   // POST a new task (2 parameters: taskText and dueByDate)
@@ -86,12 +98,14 @@ class App extends React.Component {
   }
 
   render() {
+
     const completedTasks = this.state.tasks.filter(task => {
       return task.completed;
     });
     const incompleteTasks = this.state.tasks.filter(task => {
       return !task.completed;
     });
+    const sortedIncompleteTasks = this.sortTasksByDueDate(incompleteTasks);
 
     return (
       <div>
@@ -110,7 +124,7 @@ class App extends React.Component {
               <h2>DO IT</h2>
               <TasksRemaining count={incompleteTasks.length} />
 
-              {incompleteTasks.map(task => {
+              {sortedIncompleteTasks.map(task => {
                 return <Task
                   text={task.taskText}
                   completed={task.completed}
