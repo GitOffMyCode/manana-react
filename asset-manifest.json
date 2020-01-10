@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/manana-react/static/css/main.e2d212a4.chunk.css",
-    "main.js": "/manana-react/static/js/main.46970033.chunk.js",
-    "main.js.map": "/manana-react/static/js/main.46970033.chunk.js.map",
+    "main.js": "/manana-react/static/js/main.159276c3.chunk.js",
+    "main.js.map": "/manana-react/static/js/main.159276c3.chunk.js.map",
     "runtime-main.js": "/manana-react/static/js/runtime-main.57862528.js",
     "runtime-main.js.map": "/manana-react/static/js/runtime-main.57862528.js.map",
     "static/js/2.94981b19.chunk.js": "/manana-react/static/js/2.94981b19.chunk.js",
     "static/js/2.94981b19.chunk.js.map": "/manana-react/static/js/2.94981b19.chunk.js.map",
     "index.html": "/manana-react/index.html",
-    "precache-manifest.b86b6450fccb3a4eb6964022d3f6540b.js": "/manana-react/precache-manifest.b86b6450fccb3a4eb6964022d3f6540b.js",
+    "precache-manifest.8e515dc958eaff06081fb06684488249.js": "/manana-react/precache-manifest.8e515dc958eaff06081fb06684488249.js",
     "service-worker.js": "/manana-react/service-worker.js",
     "static/css/main.e2d212a4.chunk.css.map": "/manana-react/static/css/main.e2d212a4.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.57862528.js",
     "static/js/2.94981b19.chunk.js",
     "static/css/main.e2d212a4.chunk.css",
-    "static/js/main.46970033.chunk.js"
+    "static/js/main.159276c3.chunk.js"
   ]
 }
