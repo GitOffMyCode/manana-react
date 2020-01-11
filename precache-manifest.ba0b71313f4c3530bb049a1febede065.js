@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "788e046eac0ec1ff05e62dabca613557",
+    "revision": "440d9aa64e9b9ec26a43490ea8eac21a",
     "url": "/manana-react/index.html"
   },
   {

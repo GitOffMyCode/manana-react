@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/manana-react/precache-manifest.8e515dc958eaff06081fb06684488249.js"
+  "/manana-react/precache-manifest.ba0b71313f4c3530bb049a1febede065.js"
 );
 
 self.addEventListener('message', (event) => {
