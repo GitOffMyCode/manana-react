@@ -2,7 +2,7 @@
 
 This is the front end of a Todo Application, built throughout the [Tech Returners](https://techreturners.com) Your Journey Into Tech course. It integrates with a backend, available [here](https://github.com/GitOffMyCode/manana-backend).
 
-<!-- The hosted version of the application is available here: [https://github.com/whatever-link-here](https://github.com/whatever-link-here). -->
+The hosted version of the application is available here: [https://gitoffmycode.github.io/manana-react/](https://gitoffmycode.github.io/manana-react/)
 
 ### Technology Used
 
@@ -11,14 +11,15 @@ This project uses the following technology:
 - ReactJS
 - JavaScript (ES2015+)
 - CSS
-- Webpack
 - Axios
-- ESLint
+- MomentJS
+
 
 It has been designed and built with mobile-first reponsive principles in mind.
 
-<!-- 
-(Maybe add photos here of different device sizes?) -->
+#### Image of the App on GalaxyS5
+
+![Image of App on GalaxyS5](public/manana-mobile.png)
 
 ### Running the application locally
 
