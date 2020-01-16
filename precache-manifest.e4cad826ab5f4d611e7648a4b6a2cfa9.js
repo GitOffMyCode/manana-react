@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "440d9aa64e9b9ec26a43490ea8eac21a",
+    "revision": "e23c2c2bb1a296bdeed82d88e4ab4b78",
     "url": "/manana-react/index.html"
   },
   {
-    "revision": "fc54a2ec7d67f2a3b8b5",
+    "revision": "66fb8f7f346cc3680698",
     "url": "/manana-react/static/css/main.e2d212a4.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/manana-react/static/js/2.94981b19.chunk.js"
   },
   {
-    "revision": "fc54a2ec7d67f2a3b8b5",
-    "url": "/manana-react/static/js/main.159276c3.chunk.js"
+    "revision": "66fb8f7f346cc3680698",
+    "url": "/manana-react/static/js/main.c649ee76.chunk.js"
   },
   {
     "revision": "bc255d08b4ee98517b30",
