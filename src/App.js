@@ -49,6 +49,7 @@ class App extends React.Component {
     const incompleteTasks = tasks.map(task => {
       task.isOverDue = 
       task.dateDue.isAfter(dateNow) ? task.isOverDue = false : task.isOverDue = true;
+      return tasks;
     });
     return incompleteTasks;
   } 
